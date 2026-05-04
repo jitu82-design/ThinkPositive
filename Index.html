@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Think Positive, Stay Positive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ========== LIGHT THEME ========== */
+:root, [data-theme="light"] {
+  --bg-body: #FDFDF9;
+  --bg-card: #FFFFFF;
+  --bg-card-border: #D4F5E0;
+  --bg-daily-shadow: rgba(100,160,120,0.15);
+
+  --hero-g1: #7ADCA8;
+  --hero-g2: #8CE8B8;
+  --hero-g3: #9AECC4;
+  --hero-g4: #A8F0D0;
+  --hero-circle1: rgba(255,255,255,0.12);
+  --hero-circle2: rgba(255,255,255,0.08);
+  --hero-subtitle: rgba(90,73,18,0.7);
+  --hero-badge-bg: rgba(201,162,78,0.2);
+  --hero-badge-border: rgba(201,162,78,0.35);
+  --hero-badge-text: #7A6118;
+
+  --gold-300: #D4AF6A;
+  --gold-400: #C9A24E;
+  --gold-500: #B8932E;
+  --gold-600: #9E7D22;
+  --gold-700: #7A6118;
+  --gold-800: #5C4912;
+
+  --mint-50: #F0FFF5;
+  --mint-100: #D4F5E0;
+  --mint-200: #A8E6C3;
+  --mint-400: #6DCFA0;
+
+  --motiv-g1: #7EDCAA;
+  --motiv-g2: #8CE8B8;
+  --motiv-g3: #96ECC0;
+  --motiv-text: #7A6118;
+  --motiv-number: rgba(122,97,24,0.3);
+  --motiv-circle1: rgba(255,255,255,0.15);
+  --motiv-circle2: rgba(255,255,255,0.10);
+  --motiv-gold-line: linear-gradient(90deg, transparent, #D4AF6A, #C9A24E, #D4AF6A, transparent);
+
+  --filter-text: #4A9E78;
+  --filter-active-bg: linear-gradient(135deg, #7ADCA8, #8CE8B8);
+  --filter-active-text: #7A6118;
+  --search-focus-shadow: rgba(201,162,78,0.1);
+
+  --text-primary: #2C2C2C;
+  --text-secondary: #5A5A5A;
+  --attr-number: #A8E6C3;
+
+  --footer-g1: #6CD49E;
+  --footer-g2: #7EDCAA;
+  --footer-text: #7A6118;
+  --footer-strong: #5C4912;
+
+  --scrolltop-g1: #C9A24E;
+  --scrolltop-g2: #B8932E;
+  --scrolltop-shadow: rgba(184,147,46,0.35);
+
+  --toggle-bg: rgba(201,162,78,0.2);
+  --toggle-text: #7A6118;
+  --toggle-hover: rgba(201,162,78,0.3);
+}
+
+/* ========== DARK THEME (DEFAULT) ========== */
+[data-theme="dark"] {
+  --bg-body: #0F1A14;
+  --bg-card: #162420;
+  --bg-card-border: #243D32;
+  --bg-daily-shadow: rgba(0,0,0,0.4);
+
+  --hero-g1: #142E22;
+  --hero-g2: #1A3A2B;
+  --hero-g3: #1F4533;
+  --hero-g4: #24503B;
+  --hero-circle1: rgba(140,232,184,0.06);
+  --hero-circle2: rgba(140,232,184,0.04);
+  --hero-subtitle: rgba(168,230,195,0.6);
+  --hero-badge-bg: rgba(212,175,106,0.15);
+  --hero-badge-border: rgba(212,175,106,0.25);
+  --hero-badge-text: #D4AF6A;
+
+  --gold-300: #D4AF6A;
+  --gold-400: #D4AF6A;
+  --gold-500: #E8CFA0;
+  --gold-600: #D4AF6A;
+  --gold-700: #D4AF6A;
+  --gold-800: #E8CFA0;
+
+  --mint-50: #0F1A14;
+  --mint-100: #1A3A2B;
+  --mint-200: #243D32;
+  --mint-400: #3D6B53;
+
+  --motiv-g1: #1A3A2B;
+  --motiv-g2: #1F4533;
+  --motiv-g3: #24503B;
+  --motiv-text: #D4AF6A;
+  --motiv-number: rgba(212,175,106,0.3);
+  --motiv-circle1: rgba(140,232,184,0.08);
+  --motiv-circle2: rgba(140,232,184,0.05);
+  --motiv-gold-line: linear-gradient(90deg, transparent, #D4AF6A55, #D4AF6A88, #D4AF6A55, transparent);
+
+  --filter-text: #7DD8A6;
+  --filter-active-bg: linear-gradient(135deg, #1A3A2B, #24503B);
+  --filter-active-text: #D4AF6A;
+  --search-focus-shadow: rgba(212,175,106,0.15);
+
+  --text-primary: #E8F0EC;
+  --text-secondary: #8FA99A;
+  --attr-number: #2A5040;
+
+  --footer-g1: #122A1E;
+  --footer-g2: #162E22;
+  --footer-text: #7DD8A6;
+  --footer-strong: #D4AF6A;
+
+  --scrolltop-g1: #9E7D22;
+  --scrolltop-g2: #7A6118;
+  --scrolltop-shadow: rgba(0,0,0,0.5);
+
+  --toggle-bg: rgba(140,232,184,0.1);
+  --toggle-text: #7DD8A6;
+  --toggle-hover: rgba(140,232,184,0.18);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-body);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 20px; right: 20px;
+  z-index: 200;
+  padding: 8px 16px;
+  background: var(--toggle-bg);
+  border: 1px solid var(--toggle-bg);
+  border-radius: 30px;
+  color: var(--toggle-text);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s;
+  backdrop-filter: blur(8px);
+}
+.theme-toggle:hover { background: var(--toggle-hover); }
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(160deg, var(--hero-g1) 0%, var(--hero-g2) 40%, var(--hero-g3) 70%, var(--hero-g4) 100%);
+  padding: 80px 20px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: var(--hero-circle1);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: var(--hero-circle2);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold-400);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  margin-bottom: 12px;
+  position: relative; z-index: 1;
+  letter-spacing: 2px;
+}
+.hero p {
+  font-size: 18px;
+  color: var(--hero-subtitle);
+  font-weight: 400;
+  position: relative; z-index: 1;
+}
+.hero .count {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 24px;
+  background: var(--hero-badge-bg);
+  border: 1px solid var(--hero-badge-border);
+  border-radius: 30px;
+  color: var(--hero-badge-text);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  position: relative; z-index: 1;
+}
+
+/* Daily Quote Banner */
+.daily-quote {
+  background: var(--bg-card);
+  max-width: 800px;
+  margin: -30px auto 40px;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 40px var(--bg-daily-shadow);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border: 1px solid var(--bg-card-border);
+  transition: background 0.4s, border-color 0.4s;
+}
+.daily-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  margin-bottom: 16px;
+}
+.daily-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.daily-author {
+  font-size: 14px;
+  color: var(--gold-600);
+  font-weight: 500;
+}
+.daily-btn {
+  margin-top: 20px;
+  padding: 10px 28px;
+  background: linear-gradient(135deg, var(--scrolltop-g1), var(--scrolltop-g2));
+  color: #FFFFFF;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+.daily-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px var(--scrolltop-shadow); filter: brightness(1.1); }
+
+/* Filter Bar */
+.filters {
+  max-width: 1100px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-btn {
+  padding: 8px 20px;
+  border: 1.5px solid var(--mint-200);
+  border-radius: 30px;
+  background: var(--bg-card);
+  color: var(--filter-text);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: 'Inter', sans-serif;
+}
+.filter-btn:hover { border-color: var(--mint-400); background: var(--mint-50); }
+.filter-btn.active {
+  background: var(--filter-active-bg);
+  color: var(--filter-active-text);
+  border-color: var(--mint-400);
+  font-weight: 600;
+}
+.search-box {
+  padding: 8px 16px;
+  border: 1.5px solid var(--mint-200);
+  border-radius: 30px;
+  font-size: 13px;
+  width: 220px;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.25s;
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+.search-box::placeholder { color: var(--text-secondary); }
+.search-box:focus { border-color: var(--gold-400); box-shadow: 0 0 0 3px var(--search-focus-shadow); }
+
+/* Quote Grid */
+.grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.quote-card {
+  border-radius: 14px;
+  padding: 28px 24px;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.4s;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  overflow: hidden;
+}
+.quote-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px var(--bg-daily-shadow);
+}
+
+/* Attributed quotes */
+.quote-card.attributed {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-left: 4px solid var(--gold-400);
+}
+.quote-card.attributed .card-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  flex: 1;
+}
+.quote-card.attributed .card-author {
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold-600);
+}
+.quote-card.attributed .card-number {
+  position: absolute;
+  top: 12px; right: 16px;
+  font-size: 11px;
+  color: var(--attr-number);
+  font-weight: 500;
+}
+
+/* Motivational phrases — mint card */
+.quote-card.motivational {
+  background: linear-gradient(135deg, var(--motiv-g1), var(--motiv-g2), var(--motiv-g3));
+  border: 1px solid var(--bg-card-border);
+}
+.quote-card.motivational .card-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--motiv-text);
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quote-card.motivational .card-number {
+  position: absolute;
+  top: 12px; right: 16px;
+  font-size: 11px;
+  color: var(--motiv-number);
+  font-weight: 500;
+}
+.quote-card.motivational::before {
+  content: '';
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--motiv-circle1);
+}
+.quote-card.motivational::after {
+  content: '';
+  position: absolute;
+  bottom: -15px; left: -15px;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--motiv-circle2);
+}
+.quote-card.motivational .gold-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--motiv-gold-line);
+  opacity: 0.6;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, var(--footer-g1), var(--footer-g2));
+  color: var(--footer-text);
+  font-size: 14px;
+  transition: background 0.4s;
+}
+.footer strong {
+  color: var(--footer-strong);
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+/* No results */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+/* Scroll to top */
+.scroll-top {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--scrolltop-g1), var(--scrolltop-g2));
+  color: #FFFFFF;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--scrolltop-shadow);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 100;
+}
+.scroll-top:hover { filter: brightness(1.15); transform: translateY(-2px); }
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 32px; }
+  .hero { padding: 50px 16px 40px; }
+  .daily-quote { margin: -20px 12px 30px; padding: 28px 20px; }
+  .daily-text { font-size: 20px; }
+  .grid { grid-template-columns: 1fr; padding: 0 12px 40px; }
+  .filters { padding: 0 12px; }
+  .search-box { width: 100%; }
+  .theme-toggle { top: 12px; right: 12px; padding: 6px 12px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">Light Mode</button>
+
+<div class="hero">
+  <h1>Think Positive, Stay Positive</h1>
+  <p>A collection of inspiration to brighten every day</p>
+  <div class="count">148 quotes &amp; phrases</div>
+</div>
+
+<div class="daily-quote" id="dailyQuote">
+  <div class="daily-label">Today's inspiration</div>
+  <div class="daily-text" id="dailyText"></div>
+  <div class="daily-author" id="dailyAuthor"></div>
+  <button class="daily-btn" onclick="newDaily()">New inspiration</button>
+</div>
+
+<div class="filters">
+  <div class="filter-group">
+    <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">All (148)</button>
+    <button class="filter-btn" data-filter="Quote" onclick="setFilter('Quote', this)">Quotes (111)</button>
+    <button class="filter-btn" data-filter="Motivational Phrase" onclick="setFilter('Motivational Phrase', this)">Motivational (37)</button>
+  </div>
+  <input type="text" class="search-box" placeholder="Search quotes..." oninput="searchQuotes(this.value)">
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="footer">
+  <strong>Think Positive, Stay Positive</strong><br><br>
+  148 quotes &amp; motivational phrases to inspire your journey
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+const allQuotes = [
+  [1,"It ain't no use putting up your umbrella till it rains.","Alice Hegan Rice","Quote"],
+  [2,"Positive actions lead to positive results","","Motivational Phrase"],
+  [3,"Do a little more each day than you think you possibly can.","Lowell Thomas","Quote"],
+  [4,"Work on what is real rather than worry about what is unreal.","Elizabeth George","Quote"],
+  [5,"Never look backwards or you'll fall down the stairs.","Rudyard Kipling","Quote"],
+  [6,"Keep that head up","","Motivational Phrase"],
+  [7,"Worry is as useless as a handle on a snowball.","Mitzi Chandler","Quote"],
+  [8,"Once you replace negative thoughts with positive ones, you'll start having positive results.","Willie Nelson","Quote"],
+  [9,"Keep hope in your heart","","Motivational Phrase"],
+  [10,"Look on every exit as being an entrance somewhere else.","Tom Stoppard","Quote"],
+  [11,"What makes the desert beautiful... is that somewhere it hides a well.","Antoine de Saint-Exupéry","Quote"],
+  [12,"You are never too old to set another goal or to dream a new dream.","Les Brown","Quote"],
+  [13,"Enthusiasm moves the world.","Arthur Balfour","Quote"],
+  [14,"Positivity is the secret","","Motivational Phrase"],
+  [15,"I may not have gone where I intended to go, but I think I have ended up where I needed to be.","Douglas Adams","Quote"],
+  [16,"Every moment has its pleasures and its hope.","Jane Austen","Quote"],
+  [17,"There are two ways of spreading light: to be the candle or the mirror that reflects it.","Edith Wharton","Quote"],
+  [18,"Say good words, think good things, do good deeds","","Motivational Phrase"],
+  [19,"A happy life consists not in the absence, but in the mastery of hardships.","Helen Keller","Quote"],
+  [20,"The sun is new each day.","Heraclitus","Quote"],
+  [21,"Inside every setback hides opportunity","","Motivational Phrase"],
+  [22,"Whoever is happy will make others happy too.","Anne Frank","Quote"],
+  [23,"Since the house is on fire let us warm ourselves.","Italian proverb","Quote"],
+  [24,"Let your hook be always cast; in the pool where you least expect it, there will be fish.","Ovid","Quote"],
+  [25,"Positive anything is better than negative nothing.","Elbert Hubbard","Quote"],
+  [26,"Do something today that your future self will thank you for","","Motivational Phrase"],
+  [27,"Do not think of today's failures, but of the success that may come tomorrow.","Helen Keller","Quote"],
+  [28,"Act as if what you do makes a difference. It does.","William James","Quote"],
+  [29,"You're worried about what-ifs. Well, what if you stopped worrying?","Shannon Celebi","Quote"],
+  [30,"Positive mind, positive feelings, positive life","","Motivational Phrase"],
+  [31,"The best is yet to do.","William Shakespeare","Quote"],
+  [32,"It is often in the darkest skies that we see the brightest stars.","Richard Evans","Quote"],
+  [33,"Challenges are opportunities to grow","","Motivational Phrase"],
+  [34,"When things go wrong, don't go with them.","Elvis Presley","Quote"],
+  [35,"Regard mistakes as teachers, not judges!","Tae Yun Kim","Quote"],
+  [36,"Do not anticipate trouble, or worry about what may never happen. Keep in the sunlight.","Benjamin Franklin","Quote"],
+  [37,"Worry is like a rocking chair. It gives you something to do but gets you nowhere.","Wayne Bennett","Quote"],
+  [38,"Good things are going to happen!","","Motivational Phrase"],
+  [39,"The most important thing is to enjoy your life, to be happy. It's all that matters.","Audrey Hepburn","Quote"],
+  [40,"If you don't like how things are, change it! You're not a tree.","Jim Rohn","Quote"],
+  [41,"In three words I can sum up everything I've learned about life: it goes on.","Robert Frost","Quote"],
+  [42,"Don't count the days... make the days count","","Motivational Phrase"],
+  [43,"Nothing really matters except what you do now in this instant of time.","Eileen Caddy","Quote"],
+  [44,"The dreamers are the saviours of the world.","James Allen","Quote"],
+  [45,"Your opinion is valuable","","Motivational Phrase"],
+  [46,"There are so many great things in life; why dwell on negativity?","Zendaya","Quote"],
+  [47,"Only those who never step, never stumble.","Richard Paul Evans","Quote"],
+  [48,"Believe you can and you're halfway there.","Theodore Roosevelt","Quote"],
+  [49,"What you do today can improve all your tomorrows.","Ralph Marston","Quote"],
+  [50,"Be positive, patient and persistent","","Motivational Phrase"],
+  [51,"I have found that if you love life, life will love you back.","Arthur Rubinstein","Quote"],
+  [52,"One who continues to advance will win in the end.","Daisaku Ikeda","Quote"],
+  [53,"There is no wealth but life.","John Ruskin","Quote"],
+  [54,"Have confidence in your own ability","","Motivational Phrase"],
+  [55,"Nothing to me feels as good as laughing incredibly hard.","Steve Carell","Quote"],
+  [56,"You never lose by loving. You always lose by holding back.","Barbara De Angelis","Quote"],
+  [57,"Opportunity comes to those who create it","","Motivational Phrase"],
+  [58,"Create the kind of self that you will be happy to live with all your life.","Golda Meir","Quote"],
+  [59,"Life is very interesting. In the end, some of your greatest pains become your greatest strengths.","Drew Barrymore","Quote"],
+  [60,"Today, fill your cup of life with sunshine and laughter.","Dodinsky","Quote"],
+  [61,"You must expect great things of yourself before you can do them.","Michael Jordan","Quote"],
+  [62,"Take time to do what your soul wants","","Motivational Phrase"],
+  [63,"Keeping busy and making optimism a way of life can restore your faith in yourself.","Lucille Ball","Quote"],
+  [64,"Ride the energy of your own unique spirit.","Gabrielle Roth","Quote"],
+  [65,"The best way to cheer yourself up is to try to cheer somebody else up.","Mark Twain","Quote"],
+  [66,"Setbacks are the hurdles of life – jump them!","","Motivational Phrase"],
+  [67,"Most people have never learned that one of the main aims in life is to enjoy it.","Samuel Butler","Quote"],
+  [68,"What you plant now, you will harvest later.","Og Mandino","Quote"],
+  [69,"Who cares about winning or losing?","","Motivational Phrase"],
+  [70,"Life is a great big canvas, and you should throw all the paint on it you can.","Danny Kaye","Quote"],
+  [71,"Life is a helluva lot more fun if you say 'yes' rather than 'no'.","Richard Branson","Quote"],
+  [72,"Don't be afraid. Be focused. Be determined. Be hopeful. Be empowered.","Michelle Obama","Quote"],
+  [73,"Follow your own star!","Dante Alighieri","Quote"],
+  [74,"Make a wish... then make it come true!","","Motivational Phrase"],
+  [75,"Because you are alive, everything is possible.","Thich Nhat Hanh","Quote"],
+  [76,"To live is the rarest thing in the world. Most people exist, that is all.","Oscar Wilde","Quote"],
+  [77,"Optimism is a happiness magnet. If you stay positive, good things and good people will be drawn to you.","Mary Lou Retton","Quote"],
+  [78,"Celebrate every victory","","Motivational Phrase"],
+  [79,"A head full of dreams has no space for fears.","Anonymous","Quote"],
+  [80,"I think in life you should work on yourself until the day you die.","Serena Williams","Quote"],
+  [81,"Believe in magic and you will find it","","Motivational Phrase"],
+  [82,"We don't stop playing because we grow old; we grow old because we stop playing.","George Bernard Shaw","Quote"],
+  [83,"All life is an experiment. The more experiments you make the better.","Ralph Waldo Emerson","Quote"],
+  [84,"Everything that is done in the world is done by hope.","Martin Luther","Quote"],
+  [85,"No one can make you feel inferior without your consent.","Eleanor Roosevelt","Quote"],
+  [86,"Each and every day you grow a little more","","Motivational Phrase"],
+  [87,"Forget past mistakes. Forget failures. Forget everything except what you're going to do now and do it.","William Durant","Quote"],
+  [88,"May you live all the days of your life.","Jonathan Swift","Quote"],
+  [89,"Life is either a daring adventure or nothing.","Helen Keller","Quote"],
+  [90,"Always be yourself","","Motivational Phrase"],
+  [91,"Never give up, for that is just the place and time that the tide will turn.","Harriet Beecher Stowe","Quote"],
+  [92,"A negative mind will never give you a positive life.","Anonymous","Quote"],
+  [93,"Say yes to new adventures","","Motivational Phrase"],
+  [94,"Life isn't a matter of milestones, but of moments.","Rose Kennedy","Quote"],
+  [95,"Begin whatever you have to do: the beginning of a work stands for the whole.","Ausonius","Quote"],
+  [96,"The trick is to enjoy life. Don't wish away your days, waiting for better ones ahead.","Marjorie Pay Hinckley","Quote"],
+  [97,"Opportunities multiply as they are seized.","Sun Tzu","Quote"],
+  [98,"If it doesn't challenge you, it doesn't change you","","Motivational Phrase"],
+  [99,"A rolling stone gathers no moss.","Proverb","Quote"],
+  [100,"Try to be a rainbow in someone's cloud.","Maya Angelou","Quote"],
+  [101,"The best dreams happen when you're awake.","Cherie Gilderbloom","Quote"],
+  [102,"The sun is always shining somewhere in the world","","Motivational Phrase"],
+  [103,"You can't look back; you have to keep looking forward.","Lucy Liu","Quote"],
+  [104,"Life is way too short to spend another day at war with yourself.","Ritu Ghatourey","Quote"],
+  [105,"Be the person that people want to talk to","","Motivational Phrase"],
+  [106,"In order to succeed, we must first believe that we can.","Nikos Kazantzakis","Quote"],
+  [107,"The person who can bring the spirit of laughter into a room is indeed blessed.","Bennett Cerf","Quote"],
+  [108,"In the depths of winter I finally learned that there was in me an invincible summer.","Albert Camus","Quote"],
+  [109,"Trust in dreams, for in them is hidden the gate to eternity.","Kahlil Gibran","Quote"],
+  [110,"Let positivity help you and others","","Motivational Phrase"],
+  [111,"Look for something positive in each day, even if some days you have to look a little harder.","Oprah Winfrey","Quote"],
+  [112,"If your ship doesn't come in, swim out to it.","Jonathan Winters","Quote"],
+  [113,"Try to be like the turtle – at ease in your own shell.","Bill Copeland","Quote"],
+  [114,"Make someone's day – or let them make yours","","Motivational Phrase"],
+  [115,"Every saint has a past, and every sinner has a future.","Oscar Wilde","Quote"],
+  [116,"Always laugh when you can. It is cheap medicine.","Lord Byron","Quote"],
+  [117,"Unexpected twists add spice to life","","Motivational Phrase"],
+  [118,"The quality, not the longevity, of one's life is what is important.","Martin Luther King Jr","Quote"],
+  [119,"Don't put the key to happiness in someone else's pocket.","Anonymous","Quote"],
+  [120,"I just believe in the goodwill of people, the power of people to do something positive.","Eddie Izzard","Quote"],
+  [121,"You create your opportunities by asking for them.","Shakti Gawain","Quote"],
+  [122,"You can do it – all you have to do is try","","Motivational Phrase"],
+  [123,"You can have anything you want if you are willing to give up the belief that you can't have it.","Robert Anthony","Quote"],
+  [124,"We are all of us stars, and we deserve to twinkle.","Marilyn Monroe","Quote"],
+  [125,"Good words are worth much, and cost little.","George Herbert","Quote"],
+  [126,"If not now, when? If not you, who?","","Motivational Phrase"],
+  [127,"Freedom lies in being bold.","Robert Frost","Quote"],
+  [128,"Still round the corner there may wait, a new road or a secret gate.","J.R.R. Tolkien","Quote"],
+  [129,"Each day is a blank canvas, so go make some marks","","Motivational Phrase"],
+  [130,"Always be yourself, express yourself, have faith in yourself, do not go out and look for a successful personality and duplicate it.","Bruce Lee","Quote"],
+  [131,"Seven days without laughter makes one weak.","Mort Walker","Quote"],
+  [132,"Hope will never be silent.","Harvey Milk","Quote"],
+  [133,"With confidence, you have won even before you have started.","Marcus Garvey","Quote"],
+  [134,"Welcome the day's challenges","","Motivational Phrase"],
+  [135,"Pessimism leads to weakness, optimism to power.","William James","Quote"],
+  [136,"Love all, trust a few, do wrong to none.","William Shakespeare","Quote"],
+  [137,"The limits of the possible can only be defined by going beyond them into the impossible.","Arthur C. Clarke","Quote"],
+  [138,"New connections lead to new possibilities","","Motivational Phrase"],
+  [139,"The good life is one inspired by love and guided by knowledge.","Bertrand Russell","Quote"],
+  [140,"You only get one chance at life and you have to grab it boldly.","Bear Grylls","Quote"],
+  [141,"Your life is a piece of art","","Motivational Phrase"],
+  [142,"Every moment is a fresh beginning.","T. S. Eliot","Quote"],
+  [143,"Delete the negative; accentuate the positive!","Donna Karan","Quote"],
+  [144,"We build too many walls and not enough bridges.","Anonymous","Quote"],
+  [145,"Life is to be enjoyed, not just endured.","Gordon B. Hinckley","Quote"],
+  [146,"First say to yourself what you would be; and then do what you have to do.","Epictetus","Quote"],
+  [147,"Enjoyment is just the sound of being centred.","Bhagwan Shree Rajneesh","Quote"],
+  [148,"Think positive, stay positive","","Motivational Phrase"]
+];
+
+let currentFilter = 'all';
+let searchTerm = '';
+
+function getFiltered() {
+  let list = allQuotes;
+  if (currentFilter !== 'all') list = list.filter(q => q[3] === currentFilter);
+  if (searchTerm) {
+    const s = searchTerm.toLowerCase();
+    list = list.filter(q => q[1].toLowerCase().includes(s) || q[2].toLowerCase().includes(s));
+  }
+  return list;
+}
+
+function renderGrid() {
+  const grid = document.getElementById('grid');
+  const list = getFiltered();
+  if (list.length === 0) {
+    grid.innerHTML = '<div class="no-results">No quotes found. Try a different search.</div>';
+    return;
+  }
+  grid.innerHTML = list.map(q => {
+    const isMotivational = q[3] === 'Motivational Phrase';
+    const cls = isMotivational ? 'motivational' : 'attributed';
+    const text = isMotivational ? q[1] : '“' + q[1] + '”';
+    const author = q[2] ? '<div class="card-author">— ' + q[2] + '</div>' : '';
+    const goldAccent = isMotivational ? '<div class="gold-accent"></div>' : '';
+    return '<div class="quote-card ' + cls + '">' +
+      goldAccent +
+      '<div class="card-number">#' + q[0] + '</div>' +
+      '<div class="card-quote">' + text + '</div>' +
+      author + '</div>';
+  }).join('');
+}
+
+function setFilter(f, el) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderGrid();
+}
+
+function searchQuotes(val) {
+  searchTerm = val;
+  renderGrid();
+}
+
+function pickRandom() {
+  return allQuotes[Math.floor(Math.random() * allQuotes.length)];
+}
+
+function renderDaily() {
+  const q = pickRandom();
+  document.getElementById('dailyText').textContent = q[3] === 'Quote' ? '“' + q[1] + '”' : q[1];
+  document.getElementById('dailyAuthor').textContent = q[2] ? '— ' + q[2] : '';
+}
+
+function newDaily() { renderDaily(); }
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  document.getElementById('themeToggle').textContent = next === 'dark' ? 'Light Mode' : 'Dark Mode';
+  localStorage.setItem('theme', next);
+}
+
+// Load saved theme or default to dark
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    document.getElementById('themeToggle').textContent = saved === 'dark' ? 'Light Mode' : 'Dark Mode';
+  }
+})();
+
+window.addEventListener('scroll', function() {
+  const btn = document.getElementById('scrollTop');
+  btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+});
+
+renderDaily();
+renderGrid();
+</script>
+
+</body>
+</html>
